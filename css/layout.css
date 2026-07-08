@@ -1,0 +1,356 @@
+/**
+ * NTPC SAFETY ERP MANAGEMENT SYSTEM
+ * Layout & Structural Styling (Fixed Sidebar, Sticky Navbar, Enterprise Grid & DataTables)
+ */
+
+/* Main Layout Shell */
+.erp-wrapper {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Fixed Left Sidebar */
+.erp-sidebar {
+    width: 250px;
+    min-width: 250px;
+    background: #0B192C;
+    color: #FFFFFF;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1040;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    transition: width var(--transition-fast);
+}
+
+.sidebar-header {
+    height: 64px;
+    padding: 0 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #081322;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-brand-logo {
+    width: 34px;
+    height: 34px;
+    background: linear-gradient(135deg, #2C74B3, #0A2647);
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #FFFFFF;
+    font-family: var(--font-heading);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-brand-text {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    line-height: 1.2;
+}
+
+.sidebar-brand-subtext {
+    font-size: 10px;
+    color: #94A3B8;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.sidebar-menu-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0.75rem 0;
+}
+
+.sidebar-menu-container::-webkit-scrollbar {
+    width: 5px;
+}
+.sidebar-menu-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+}
+
+.sidebar-category-label {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    color: #64748B;
+    padding: 0.75rem 1.25rem 0.35rem;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+}
+
+.sidebar-nav-item {
+    list-style: none;
+    margin: 2px 10px;
+}
+
+.sidebar-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.6rem 0.85rem;
+    color: #94A3B8;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 13.5px;
+    font-weight: 500;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.sidebar-nav-link i {
+    font-size: 15px;
+    width: 20px;
+    text-align: center;
+    color: #64748B;
+    transition: color 0.15s ease;
+}
+
+.sidebar-nav-link:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #FFFFFF;
+}
+
+.sidebar-nav-link:hover i {
+    color: #FFFFFF;
+}
+
+.sidebar-nav-link.active {
+    background: #144272;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.sidebar-nav-link.active i {
+    color: #60A5FA;
+}
+
+.sidebar-footer {
+    padding: 0.75rem 1rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 11px;
+    color: #64748B;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Sidebar Collapsed State */
+.erp-sidebar.collapsed {
+    width: 68px;
+    min-width: 68px;
+}
+.erp-sidebar.collapsed .sidebar-brand-text,
+.erp-sidebar.collapsed .sidebar-brand-subtext,
+.erp-sidebar.collapsed .sidebar-brand-wrapper,
+.erp-sidebar.collapsed .sidebar-nav-link span,
+.erp-sidebar.collapsed .sidebar-category-label,
+.erp-sidebar.collapsed .sidebar-footer span {
+    display: none !important;
+}
+.erp-sidebar.collapsed .sidebar-header {
+    justify-content: center;
+    padding: 0;
+}
+.erp-sidebar.collapsed .sidebar-nav-link {
+    justify-content: center;
+    padding: 0.75rem 0;
+}
+.erp-sidebar.collapsed .sidebar-nav-link i {
+    font-size: 18px;
+    margin: 0;
+}
+.erp-sidebar.collapsed .sidebar-footer {
+    justify-content: center;
+}
+
+/* Main Content Area */
+.erp-main {
+    flex: 1;
+    margin-left: 250px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    transition: margin-left var(--transition-fast);
+}
+.erp-main.collapsed {
+    margin-left: 68px;
+}
+
+/* Top Sticky Navigation Bar */
+.erp-navbar {
+    height: 65px;
+    background-color: var(--ntpc-card-bg);
+    border-bottom: 1px solid var(--ntpc-border);
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--shadow-sm);
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* FY & Area Selector Pills */
+.erp-selector-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--ntpc-bg);
+    border: 1px solid var(--ntpc-border);
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--border-radius-sm);
+}
+
+.selector-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--ntpc-text-muted);
+}
+
+.selector-dropdown {
+    border: none;
+    background: transparent;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ntpc-primary);
+    cursor: pointer;
+    outline: none;
+}
+
+[data-theme="dark"] .selector-dropdown {
+    color: #F8FAFC;
+}
+
+/* Live Clock Display */
+.live-clock-pill {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    padding: 0.35rem 0.75rem;
+    background-color: rgba(10, 38, 71, 0.06);
+    border: 1px solid rgba(10, 38, 71, 0.15);
+    border-radius: var(--border-radius-sm);
+    color: var(--ntpc-primary);
+    font-weight: 600;
+}
+
+[data-theme="dark"] .live-clock-pill {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #E2E8F0;
+}
+
+/* Content Container */
+.erp-content {
+    padding: 1.5rem;
+    flex: 1;
+}
+
+/* Dense Professional SAP Tables */
+.erp-table-container {
+    background-color: var(--ntpc-card-bg);
+    border: 1px solid var(--ntpc-border);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.table-erp {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.table-erp thead {
+    background-color: var(--ntpc-table-bg);
+    border-bottom: 2px solid var(--ntpc-border-dark);
+}
+
+.table-erp th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--ntpc-primary);
+    text-transform: uppercase;
+    font-size: 11.5px;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+}
+
+[data-theme="dark"] .table-erp th {
+    color: #E2E8F0;
+}
+
+.table-erp td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--ntpc-border);
+    color: var(--ntpc-text-main);
+    vertical-align: middle;
+}
+
+.table-erp tbody tr:hover {
+    background-color: rgba(44, 116, 179, 0.04);
+}
+
+[data-theme="dark"] .table-erp tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Responsive queries */
+@media (max-width: 992px) {
+    .erp-sidebar {
+        transform: translateX(-100%);
+    }
+    .erp-sidebar.open {
+        transform: translateX(0);
+    }
+    .erp-main {
+        margin-left: 0;
+    }
+}
+
+/* Excel-Style Real-time Table Cell Inputs */
+.table-erp tbody td input.focus-bg-white,
+.table-erp tbody td select.focus-bg-white {
+    transition: all 0.15s ease-in-out;
+}
+.table-erp tbody td input.focus-bg-white:focus,
+.table-erp tbody td select.focus-bg-white:focus {
+    background-color: #ffffff !important;
+    border: 1px solid #10b981 !important;
+    border-radius: 4px;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15) !important;
+    outline: none !important;
+    color: #0A2647 !important;
+}
+
+/* Universal Clickable Elements Hand Cursor Fix */
+.cursor-pointer, [onclick], .badge[onclick], .card[onclick], .list-group-item[onclick], table th[onclick], table td[onclick], .btn, button, a, [role="button"], .badge.cursor-pointer, span[onclick], div[onclick], tr[onclick], i[onclick] {
+    cursor: pointer !important;
+}

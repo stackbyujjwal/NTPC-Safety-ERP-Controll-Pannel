@@ -1,0 +1,251 @@
+/**
+ * NTPC SAFETY ERP MANAGEMENT SYSTEM
+ * UI Components (KPI Scorecards, Modals, Filters, Signature Pad, Login Screen)
+ */
+
+/* Minimal Corporate Login Screen */
+.login-wrapper {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: var(--ntpc-primary);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.login-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(8, 27, 51, 0.92), rgba(10, 38, 71, 0.88));
+    z-index: 1;
+}
+
+.login-card {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 440px;
+    background: var(--ntpc-card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--border-radius);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+    padding: 2.5rem 2.25rem;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--ntpc-border);
+    padding-bottom: 1.25rem;
+}
+
+.login-logo {
+    width: 54px;
+    height: 54px;
+    background: var(--ntpc-primary);
+    color: #FFFFFF;
+    font-size: 22px;
+    font-weight: 700;
+    border-radius: var(--border-radius-sm);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+}
+
+.login-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ntpc-primary);
+    margin: 0;
+}
+
+[data-theme="dark"] .login-title {
+    color: #F8FAFC;
+}
+
+.login-subtitle {
+    font-size: 12px;
+    color: var(--ntpc-text-muted);
+    margin-top: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.login-footer {
+    position: relative;
+    z-index: 2;
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 11.5px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* KPI Metric Scorecards */
+.kpi-card {
+    background: var(--ntpc-card-bg);
+    border: 1px solid var(--ntpc-border);
+    border-radius: var(--border-radius);
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: var(--ntpc-primary);
+}
+
+.kpi-card.kpi-success::before { background-color: var(--ntpc-success); }
+.kpi-card.kpi-warning::before { background-color: var(--ntpc-warning); }
+.kpi-card.kpi-danger::before { background-color: var(--ntpc-danger); }
+.kpi-card.kpi-accent::before { background-color: var(--ntpc-accent); }
+
+.kpi-info h6 {
+    font-size: 11.5px;
+    color: var(--ntpc-text-muted);
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+}
+
+.kpi-info .kpi-value {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--ntpc-primary);
+    line-height: 1.1;
+    font-family: var(--font-heading);
+}
+
+[data-theme="dark"] .kpi-info .kpi-value {
+    color: #F8FAFC;
+}
+
+.kpi-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--border-radius-sm);
+    background-color: rgba(10, 38, 71, 0.08);
+    color: var(--ntpc-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.kpi-card.kpi-success .kpi-icon { background-color: rgba(46, 125, 50, 0.1); color: var(--ntpc-success); }
+.kpi-card.kpi-warning .kpi-icon { background-color: rgba(249, 168, 37, 0.15); color: #b87a00; }
+.kpi-card.kpi-danger .kpi-icon { background-color: rgba(198, 40, 40, 0.1); color: var(--ntpc-danger); }
+.kpi-card.kpi-accent .kpi-icon { background-color: rgba(44, 116, 179, 0.1); color: var(--ntpc-accent); }
+
+/* Filter Bar Matrix */
+.filter-bar {
+    background: var(--ntpc-card-bg);
+    border: 1px solid var(--ntpc-border);
+    border-radius: var(--border-radius);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.filter-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.filter-item label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--ntpc-text-muted);
+}
+
+/* Digital Signature Canvas */
+.signature-wrapper {
+    border: 2px dashed var(--ntpc-border-dark);
+    border-radius: var(--border-radius-sm);
+    background-color: #FFFFFF;
+    position: relative;
+}
+
+.signature-canvas {
+    width: 100%;
+    height: 160px;
+    cursor: crosshair;
+    display: block;
+}
+
+/* Photo Upload Box */
+.dropzone-box {
+    border: 2px dashed var(--ntpc-border-dark);
+    border-radius: var(--border-radius-sm);
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    background-color: rgba(10, 38, 71, 0.02);
+    transition: all var(--transition-fast);
+}
+
+.dropzone-box:hover {
+    border-color: var(--ntpc-accent);
+    background-color: rgba(44, 116, 179, 0.04);
+}
+
+/* Photo Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.25rem;
+}
+
+.gallery-card {
+    border: 1px solid var(--ntpc-border);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background: var(--ntpc-card-bg);
+    cursor: pointer;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.gallery-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.gallery-thumb {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    background-color: #E2E8F0;
+}
+
+.gallery-caption {
+    padding: 0.75rem;
+    font-size: 12px;
+}
+
+/* Universal Clickable Elements Hand Cursor Fix */
+.cursor-pointer, [onclick], .badge[onclick], .card[onclick], .list-group-item[onclick], table th[onclick], table td[onclick], .btn, button, a, [role="button"], .badge.cursor-pointer, span[onclick], div[onclick], tr[onclick], i[onclick] {
+    cursor: pointer !important;
+}

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="100%" height="100%">
+    <!-- Deep Industrial Night/Blue Gradient -->
+    <defs>
+        <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#050e1d"/>
+            <stop offset="50%" stop-color="#0a2647"/>
+            <stop offset="100%" stop-color="#144272"/>
+        </linearGradient>
+        <linearGradient id="steamGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+            <stop offset="0%" stop-color="rgba(255,255,255,0.25)"/>
+            <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+        </linearGradient>
+    </defs>
+    
+    <rect width="1440" height="900" fill="url(#skyGrad)"/>
+    
+    <!-- Geometric Power Plant Grid Lines -->
+    <g stroke="rgba(255,255,255,0.03)" stroke-width="1">
+        <line x1="0" y1="150" x2="1440" y2="150"/>
+        <line x1="0" y1="300" x2="1440" y2="300"/>
+        <line x1="0" y1="450" x2="1440" y2="450"/>
+        <line x1="0" y1="600" x2="1440" y2="600"/>
+        <line x1="0" y1="750" x2="1440" y2="750"/>
+        <line x1="200" y1="0" x2="200" y2="900"/>
+        <line x1="500" y1="0" x2="500" y2="900"/>
+        <line x1="800" y1="0" x2="800" y2="900"/>
+        <line x1="1100" y1="0" x2="1100" y2="900"/>
+    </g>
+
+    <!-- Cooling Towers Silhouette -->
+    <g fill="#07182c">
+        <!-- Cooling Tower 1 -->
+        <path d="M 250 700 Q 280 500 270 400 L 370 400 Q 360 500 390 700 Z"/>
+        <!-- Cooling Tower 2 -->
+        <path d="M 430 700 Q 460 480 450 370 L 560 370 Q 550 480 580 700 Z"/>
+        <!-- Boiler Main Structure -->
+        <rect x="680" y="320" width="220" height="380"/>
+        <polygon points="680,320 900,320 870,280 710,280"/>
+        <!-- Chimney Stacks -->
+        <rect x="980" y="220" width="35" height="480"/>
+        <rect x="1050" y="250" width="35" height="450"/>
+    </g>
+
+    <!-- Steam Plumes -->
+    <path d="M 320 400 C 300 330 350 280 320 200 C 290 120 360 80 340 0" fill="none" stroke="url(#steamGrad)" stroke-width="45" stroke-linecap="round"/>
+    <path d="M 505 370 C 490 300 540 250 510 170 C 480 100 550 50 530 0" fill="none" stroke="url(#steamGrad)" stroke-width="50" stroke-linecap="round"/>
+
+    <!-- High Voltage Transmission Towers & Wires -->
+    <g stroke="#1e3a5f" stroke-width="2" fill="none">
+        <path d="M 1250 700 L 1275 520 L 1300 700 M 1255 640 L 1295 640 M 1265 580 L 1285 580"/>
+        <line x1="995" y1="230" x2="1275" y2="520" stroke="rgba(255,255,255,0.08)"/>
+    </g>
+
+    <!-- Ground Level Foundation -->
+    <rect x="0" y="700" width="1440" height="200" fill="#040b15"/>
+</svg>

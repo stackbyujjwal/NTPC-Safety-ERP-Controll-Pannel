@@ -1,0 +1,242 @@
+/**
+ * NTPC SAFETY ERP MANAGEMENT SYSTEM
+ * Enterprise Theme System (SAP / Oracle / Microsoft Dynamics Corporate Style)
+ * Strictly NO cartoonish UI, NO excessive gradients, NO glassmorphism.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+:root {
+    /* Corporate Color Palette */
+    --ntpc-primary: #0A2647;
+    --ntpc-secondary: #144272;
+    --ntpc-accent: #2C74B3;
+    --ntpc-success: #2E7D32;
+    --ntpc-warning: #F9A825;
+    --ntpc-danger: #C62828;
+    --ntpc-bg: #F5F7FA;
+    --ntpc-sidebar: #081B33;
+    --ntpc-card-bg: #FFFFFF;
+    --ntpc-table-bg: #F8F9FA;
+    --ntpc-btn-blue: #2C74B3;
+    --ntpc-text-main: #1E293B;
+    --ntpc-text-muted: #64748B;
+    --ntpc-border: #E2E8F0;
+    --ntpc-border-dark: #CBD5E1;
+    
+    /* Typography */
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-heading: 'Poppins', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    /* Shape & Shadows */
+    --border-radius: 8px;
+    --border-radius-sm: 4px;
+    --shadow-sm: 0 1px 2px 0 rgba(10, 38, 71, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(10, 38, 71, 0.08), 0 2px 4px -1px rgba(10, 38, 71, 0.04);
+    --shadow-lg: 0 10px 15px -3px rgba(10, 38, 71, 0.1), 0 4px 6px -2px rgba(10, 38, 71, 0.05);
+    --transition-fast: 0.15s ease-in-out;
+}
+
+/* Dark Mode Variables */
+[data-theme="dark"] {
+    --ntpc-bg: #0B1320;
+    --ntpc-card-bg: #131E30;
+    --ntpc-table-bg: #172438;
+    --ntpc-text-main: #F1F5F9;
+    --ntpc-text-muted: #94A3B8;
+    --ntpc-border: #23354E;
+    --ntpc-border-dark: #334868;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--ntpc-bg);
+    color: var(--ntpc-text-main);
+    margin: 0;
+    padding: 0;
+    font-size: 13.5px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--ntpc-primary);
+    font-weight: 600;
+    margin-top: 0;
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+    color: #E2E8F0;
+}
+
+/* Enterprise Corporate Cards */
+.erp-card {
+    background: var(--ntpc-card-bg);
+    border: 1px solid var(--ntpc-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 1.25rem;
+    transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.erp-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--ntpc-border-dark);
+}
+
+.erp-card-header {
+    padding: 0.85rem 1.25rem;
+    border-bottom: 1px solid var(--ntpc-border);
+    background-color: rgba(10, 38, 71, 0.02);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--ntpc-primary);
+}
+
+[data-theme="dark"] .erp-card-header {
+    background-color: rgba(255, 255, 255, 0.02);
+    color: #F8FAFC;
+}
+
+.erp-card-body {
+    padding: 1.25rem;
+}
+
+/* Enterprise Buttons */
+.btn-erp-primary {
+    background-color: var(--ntpc-primary);
+    color: #FFFFFF;
+    border: 1px solid var(--ntpc-primary);
+    border-radius: var(--border-radius-sm);
+    padding: 0.45rem 1rem;
+    font-weight: 500;
+    font-size: 13px;
+    transition: all var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.btn-erp-primary:hover {
+    background-color: var(--ntpc-secondary);
+    border-color: var(--ntpc-secondary);
+    color: #FFFFFF;
+}
+
+.btn-erp-accent {
+    background-color: var(--ntpc-btn-blue);
+    color: #FFFFFF;
+    border: 1px solid var(--ntpc-btn-blue);
+    border-radius: var(--border-radius-sm);
+    padding: 0.45rem 1rem;
+    font-weight: 500;
+    font-size: 13px;
+    transition: all var(--transition-fast);
+}
+
+.btn-erp-accent:hover {
+    background-color: #205c90;
+    color: #FFFFFF;
+}
+
+.btn-erp-outline {
+    background-color: transparent;
+    color: var(--ntpc-primary);
+    border: 1px solid var(--ntpc-border-dark);
+    border-radius: var(--border-radius-sm);
+    padding: 0.45rem 1rem;
+    font-weight: 500;
+    font-size: 13px;
+    transition: all var(--transition-fast);
+}
+
+[data-theme="dark"] .btn-erp-outline {
+    color: #E2E8F0;
+}
+
+.btn-erp-outline:hover {
+    background-color: rgba(10, 38, 71, 0.05);
+    border-color: var(--ntpc-primary);
+}
+
+/* Status Badges */
+.badge-erp {
+    padding: 0.3rem 0.65rem;
+    border-radius: var(--border-radius-sm);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.badge-success {
+    background-color: rgba(46, 125, 50, 0.12);
+    color: var(--ntpc-success);
+    border: 1px solid rgba(46, 125, 50, 0.3);
+}
+
+.badge-warning {
+    background-color: rgba(249, 168, 37, 0.15);
+    color: #b87a00;
+    border: 1px solid rgba(249, 168, 37, 0.4);
+}
+
+[data-theme="dark"] .badge-warning {
+    color: #fdd835;
+}
+
+.badge-danger {
+    background-color: rgba(198, 40, 40, 0.12);
+    color: var(--ntpc-danger);
+    border: 1px solid rgba(198, 40, 40, 0.3);
+}
+
+.badge-info {
+    background-color: rgba(44, 116, 179, 0.12);
+    color: var(--ntpc-accent);
+    border: 1px solid rgba(44, 116, 179, 0.3);
+}
+
+/* Form Controls */
+.form-control, .form-select {
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--ntpc-border-dark);
+    font-size: 13.5px;
+    padding: 0.45rem 0.75rem;
+    background-color: var(--ntpc-card-bg);
+    color: var(--ntpc-text-main);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--ntpc-accent);
+    box-shadow: 0 0 0 3px rgba(44, 116, 179, 0.15);
+}
+
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-select {
+    background-color: #172438;
+    color: #F8FAFC;
+    border-color: var(--ntpc-border);
+}
+
+/* Universal Clickable Elements Hand Cursor Fix */
+.cursor-pointer, [onclick], .badge[onclick], .card[onclick], .list-group-item[onclick], table th[onclick], table td[onclick], .btn, button, a, [role="button"], .badge.cursor-pointer, span[onclick], div[onclick], tr[onclick], i[onclick] {
+    cursor: pointer !important;
+}
